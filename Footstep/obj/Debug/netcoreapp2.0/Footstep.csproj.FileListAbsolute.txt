@@ -1,0 +1,10 @@
+F:\Copy\GitHub\Footstep\Footstep\bin\Debug\netcoreapp2.0\Footstep.deps.json
+F:\Copy\GitHub\Footstep\Footstep\bin\Debug\netcoreapp2.0\Footstep.runtimeconfig.json
+F:\Copy\GitHub\Footstep\Footstep\bin\Debug\netcoreapp2.0\Footstep.runtimeconfig.dev.json
+F:\Copy\GitHub\Footstep\Footstep\bin\Debug\netcoreapp2.0\Footstep.dll
+F:\Copy\GitHub\Footstep\Footstep\bin\Debug\netcoreapp2.0\Footstep.pdb
+F:\Copy\GitHub\Footstep\Footstep\obj\Debug\netcoreapp2.0\Footstep.csproj.CoreCompileInputs.cache
+F:\Copy\GitHub\Footstep\Footstep\obj\Debug\netcoreapp2.0\Footstep.AssemblyInfoInputs.cache
+F:\Copy\GitHub\Footstep\Footstep\obj\Debug\netcoreapp2.0\Footstep.AssemblyInfo.cs
+F:\Copy\GitHub\Footstep\Footstep\obj\Debug\netcoreapp2.0\Footstep.dll
+F:\Copy\GitHub\Footstep\Footstep\obj\Debug\netcoreapp2.0\Footstep.pdb
