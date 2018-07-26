@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -80,6 +81,13 @@ namespace Footstep
         protected override void LoadContent()
         {
             checkerboardTexture = Content.Load<Texture2D>("Checkerboard");
+
+            string fileLocation = "Footstep01.json";
+            string rawData;
+            using (StreamReader file = new StreamReader(TitleContainer.OpenStream(Content.RootDirectory + "/" + fileLocation))) {
+                rawData = file.ReadToEnd();
+            }
+            Console.WriteLine(rawData);
         }
 
         /// <summary>

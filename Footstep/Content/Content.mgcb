@@ -25,3 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:Checkerboard.png
 
+#begin Footstep01.json
+/copy:Footstep01.json
+
