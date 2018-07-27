@@ -104,7 +104,6 @@ namespace Footstep
                     Forward += dx * _rotationSpeed * normal;
                     //Forward -= dy * _rotationSpeed * Up;
                     Forward = Vector3.Normalize(Forward);
-                    Console.WriteLine(Forward);
                 }
 
                 if (InputManager.IsDown(InputKey.MoveForward))
