@@ -102,6 +102,7 @@ namespace Footstep
                 _mState = Mouse.GetState();
 
                 Forward += dx * _rotationSpeed * normal;
+                //Forward -= dy * _rotationSpeed * Up;
                 Forward = Vector3.Normalize(Forward);
                 Console.WriteLine(Forward);
             }
@@ -113,10 +114,10 @@ namespace Footstep
                 Position -= Forward * _speed * deltaTime;
 
             if (InputManager.IsDown(InputKey.MoveLeft))
-                Position += Vector3.Cross(Up, Forward) * _speed * deltaTime;
+                Position -= normal * _speed * deltaTime;
 
             if (InputManager.IsDown(InputKey.MoveRight))
-                Position -= Vector3.Cross(Up, Forward) * _speed * deltaTime;
+                Position += normal * _speed * deltaTime;
 
             updateMatrix();
         }
