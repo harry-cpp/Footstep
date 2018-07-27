@@ -30,18 +30,16 @@ namespace Footstep
 
         public void Update(GameTime gameTime)
         {
-            var state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.W))
+            if (InputManager.IsDown(InputKey.MoveForward))
                 _position.Y -= 0.1f;
 
-            if (state.IsKeyDown(Keys.S))
+            if (InputManager.IsDown(InputKey.MoveBackwards))
                 _position.Y += 0.1f;
 
-            if (state.IsKeyDown(Keys.A))
+            if (InputManager.IsDown(InputKey.MoveLeft))
                 _position.X += 0.1f;
 
-            if (state.IsKeyDown(Keys.D))
+            if (InputManager.IsDown(InputKey.MoveRight))
                 _position.X -= 0.1f;
 
             _world = Matrix.CreateTranslation(_position);

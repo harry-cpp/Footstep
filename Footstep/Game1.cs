@@ -50,6 +50,8 @@ namespace Footstep
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            InputManager.Update();
+
             _camera.Update(gameTime);
             foreach (var obj in _objects)
                 obj.Update(gameTime);
