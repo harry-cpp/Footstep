@@ -84,8 +84,6 @@ namespace Footstep
 
         public void Update(GameTime gameTime)
         {
-            updateMatrix();
-
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000f;
 
             _prevMState = _mState;
