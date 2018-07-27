@@ -89,33 +89,36 @@ namespace Footstep
             _prevMState = _mState;
             _mState = Mouse.GetState();
 
-            Vector3 normal = Vector3.Cross(Forward, Up);
-
-            if (_mState != _prevMState)
+            if (Utility.Game.IsActive)
             {
-                float dx = _mState.X - _prevMState.X;
-                float dy = _mState.Y - _prevMState.Y;
+                Vector3 normal = Vector3.Cross(Forward, Up);
 
-                Mouse.SetPosition(Graphics.GraphicsDevice.Viewport.Width / 2, Graphics.GraphicsDevice.Viewport.Height / 2);
-                _mState = Mouse.GetState();
+                if (_mState != _prevMState)
+                {
+                    float dx = _mState.X - _prevMState.X;
+                    float dy = _mState.Y - _prevMState.Y;
 
-                Forward += dx * _rotationSpeed * normal;
-                //Forward -= dy * _rotationSpeed * Up;
-                Forward = Vector3.Normalize(Forward);
-                Console.WriteLine(Forward);
+                    Mouse.SetPosition(Graphics.GraphicsDevice.Viewport.Width / 2, Graphics.GraphicsDevice.Viewport.Height / 2);
+                    _mState = Mouse.GetState();
+
+                    Forward += dx * _rotationSpeed * normal;
+                    //Forward -= dy * _rotationSpeed * Up;
+                    Forward = Vector3.Normalize(Forward);
+                    Console.WriteLine(Forward);
+                }
+
+                if (InputManager.IsDown(InputKey.MoveForward))
+                    Position += Forward * _speed * deltaTime;
+
+                if (InputManager.IsDown(InputKey.MoveBackwards))
+                    Position -= Forward * _speed * deltaTime;
+
+                if (InputManager.IsDown(InputKey.MoveLeft))
+                    Position -= normal * _speed * deltaTime;
+
+                if (InputManager.IsDown(InputKey.MoveRight))
+                    Position += normal * _speed * deltaTime;
             }
-
-            if (InputManager.IsDown(InputKey.MoveForward))
-                Position += Forward * _speed * deltaTime;
-
-            if (InputManager.IsDown(InputKey.MoveBackwards))
-                Position -= Forward * _speed * deltaTime;
-
-            if (InputManager.IsDown(InputKey.MoveLeft))
-                Position -= normal * _speed * deltaTime;
-
-            if (InputManager.IsDown(InputKey.MoveRight))
-                Position += normal * _speed * deltaTime;
 
             updateMatrix();
         }
