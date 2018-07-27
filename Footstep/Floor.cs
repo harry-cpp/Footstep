@@ -8,7 +8,6 @@ namespace Footstep
     {
         private Texture2D _texture;
         private VertexPositionNormalTexture[] _vertices;
-        private BasicEffect _effect;
 
         public Floor()
         {
@@ -35,21 +34,14 @@ namespace Footstep
 
         public override void Load(ContentManager content, GraphicsDeviceManager graphics)
         {
-            _effect = new BasicEffect(graphics.GraphicsDevice);
-
             _texture = content.Load<Texture2D>("Checkerboard");
         }
 
         public override void Draw(GameTime gameTime, Camera camera)
         {
-            _effect.World = camera.World;
-            _effect.View = camera.View;
-            _effect.Projection = camera.Projection;
+            Utility.Effect.Texture = _texture;
 
-            _effect.TextureEnabled = true;
-            _effect.Texture = _texture;
-
-            foreach (var pass in _effect.CurrentTechnique.Passes)
+            foreach (var pass in Utility.Effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
 

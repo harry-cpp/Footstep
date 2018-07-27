@@ -28,6 +28,8 @@ namespace Footstep
             Window.Title = "Monogame 3D Tests";
             IsMouseVisible = true;
 
+            Utility.Effect = new BasicEffect(_graphics.GraphicsDevice);
+
             _camera = new Camera(_graphics);
             _objects = new List<IGameObject>();
 
@@ -57,6 +59,12 @@ namespace Footstep
 
         protected override void Draw(GameTime gameTime)
         {
+            Utility.Effect.World = _camera.World;
+            Utility.Effect.View = _camera.View;
+            Utility.Effect.Projection = _camera.Projection;
+
+            Utility.Effect.TextureEnabled = true;
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             foreach(var obj in _objects)
