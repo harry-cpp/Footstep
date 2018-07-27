@@ -28,7 +28,9 @@ namespace Footstep
             Window.Title = "Monogame 3D Tests";
             IsMouseVisible = false;
 
+            Utility.Game = this;
             Utility.Effect = new BasicEffect(_graphics.GraphicsDevice);
+            Utility.Window = Window;
 
             _camera = new Camera(_graphics);
             _objects = new List<IGameObject>();
