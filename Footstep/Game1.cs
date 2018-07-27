@@ -26,7 +26,7 @@ namespace Footstep
         protected override void Initialize()
         {
             Window.Title = "Monogame 3D Tests";
-            IsMouseVisible = true;
+            IsMouseVisible = false;
 
             Utility.Effect = new BasicEffect(_graphics.GraphicsDevice);
 
@@ -43,6 +43,8 @@ namespace Footstep
 
             foreach(var obj in _objects)
                 obj.Load(Content, _graphics);
+
+            Mouse.SetPosition(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
         }
 
         protected override void Update(GameTime gameTime)
