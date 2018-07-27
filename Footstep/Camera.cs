@@ -1,61 +1,50 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace Footstep
 {
     class Camera
     {
-        public Camera(GraphicsDevice gd) {
-            graphicsDevice = gd;
+        private Vector3 _position;
+        private Matrix _projection;
+        private Matrix _view;
+        private Matrix _world;
+
+        public Camera(GraphicsDeviceManager graphics)
+        {
+            Graphics = graphics;
+            _position = Vector3.Zero;
+
+            _projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), graphics.PreferredBackBufferWidth * 1f / graphics.PreferredBackBufferHeight, 0.1f, 100f);
+            _view = Matrix.CreateLookAt(new Vector3(0, 0, 2), new Vector3(0, 2, 2), Vector3.UnitZ);
+            _world = Matrix.CreateTranslation(Vector3.Zero);
         }
 
-        GraphicsDevice graphicsDevice;
+        public GraphicsDeviceManager Graphics { get; private set; }
 
-        Vector3 position = new Vector3(0.1f, 0f, 2);
+        public Matrix Projection => _projection;
 
-        public Matrix ViewMatrix {
-            get {
-                var lookAtVector = Vector3.Zero;
-                var upVector = Vector3.UnitZ;
+        public Matrix View => _view;
 
-                return Matrix.CreateLookAt(position, lookAtVector, upVector);
-            }
-        }
-        public Matrix ProjectionMatrix {
-            get {
-                float fieldOfView = MathHelper.PiOver4;
-                float nearClipPlane = 1;
-                float farClipPlane = 400;
-                float aspectRatio = graphicsDevice.Viewport.Width / (float)graphicsDevice.Viewport.Height;
+        public Matrix World => _world;
 
-                return Matrix.CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, nearClipPlane, farClipPlane);
-            }
-        }
-        public void moveOut() {
-            position.Z += 0.1f;
-        }
-        public void moveIn() {
-            position.Z -= 0.1f;
-        }
-        public void moveLeft() {
-            position.X += 0.1f;
-        }
-        public void moveRight() {
-            position.X -= 0.1f;
-        }
-        public void moveUp() {
-            position.Y -= 0.1f;
-        }
-        public void moveDown() {
-            position.Y += 0.1f;
-        }
-        public void Update(GameTime gameTime) {
+        public void Update(GameTime gameTime)
+        {
+            var state = Keyboard.GetState();
 
+            if (state.IsKeyDown(Keys.W))
+                _position.Y -= 0.1f;
+
+            if (state.IsKeyDown(Keys.S))
+                _position.Y += 0.1f;
+
+            if (state.IsKeyDown(Keys.A))
+                _position.X += 0.1f;
+
+            if (state.IsKeyDown(Keys.D))
+                _position.X -= 0.1f;
+
+            _world = Matrix.CreateTranslation(_position);
         }
     }
 }
