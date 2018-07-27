@@ -15,7 +15,8 @@ namespace Footstep
         private Matrix _view;
         private Matrix _world;
 
-        private float speed = 5f;
+        private float _speed = 5f;
+        private float _rotationSpeed = 0.002f;
 
         private static MouseState _prevMState, _mState;
 
@@ -86,7 +87,6 @@ namespace Footstep
             updateMatrix();
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000f;
-            float mouseAmountX = 0.001f;
 
             _prevMState = _mState;
             _mState = Mouse.GetState();
@@ -101,21 +101,22 @@ namespace Footstep
                 Mouse.SetPosition(Graphics.GraphicsDevice.Viewport.Width / 2, Graphics.GraphicsDevice.Viewport.Height / 2);
                 _mState = Mouse.GetState();
 
-                Forward += dx * mouseAmountX * normal;
-                Forward.Normalize();
+                Forward += dx * _rotationSpeed * normal;
+                Forward = Vector3.Normalize(Forward);
+                Console.WriteLine(Forward);
             }
 
             if (InputManager.IsDown(InputKey.MoveForward))
-                Position += Forward * speed * deltaTime;
+                Position += Forward * _speed * deltaTime;
 
             if (InputManager.IsDown(InputKey.MoveBackwards))
-                Position -= Forward * speed * deltaTime;
+                Position -= Forward * _speed * deltaTime;
 
             if (InputManager.IsDown(InputKey.MoveLeft))
-                Position += Vector3.Cross(Up, Forward) * speed * deltaTime;
+                Position += Vector3.Cross(Up, Forward) * _speed * deltaTime;
 
             if (InputManager.IsDown(InputKey.MoveRight))
-                Position -= Vector3.Cross(Up, Forward) * speed * deltaTime;
+                Position -= Vector3.Cross(Up, Forward) * _speed * deltaTime;
 
             updateMatrix();
         }
