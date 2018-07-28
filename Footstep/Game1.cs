@@ -21,6 +21,10 @@ namespace Footstep
             _graphics.IsFullScreen = false;
             _graphics.PreferredBackBufferWidth = 320 * 4;
             _graphics.PreferredBackBufferHeight = 200 * 4;
+
+            IsFixedTimeStep = false;
+            _graphics.SynchronizeWithVerticalRetrace = false;
+            _graphics.GraphicsProfile = GraphicsProfile.HiDef;
         }
 
         protected override void Initialize()
