@@ -38,6 +38,7 @@ namespace Footstep
             Utility.Effect = new BasicEffect(_graphics.GraphicsDevice);
             Utility.Window = Window;
 
+            Utility.GameMap = MapGenerator.GenerateMap();
             _camera = new Camera(_graphics);
             _objects = new List<IGameObject>();
 
@@ -46,8 +47,6 @@ namespace Footstep
 
         protected override void LoadContent()
         {
-            Utility.GameMap = new Map();
-
             var floor = new Floor();
             var wall = new Wall();
             var ceiling = new Ceiling();

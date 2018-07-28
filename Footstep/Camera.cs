@@ -23,7 +23,7 @@ namespace Footstep
         public Camera(GraphicsDeviceManager graphics)
         {
             Graphics = graphics;
-            _position = new Vector3(0, 0, 0.25f);
+            _position = new Vector3(Utility.GameMap.Spawn.X + 0.5f, Utility.GameMap.Spawn.Y + 0.5f, 0.25f);
 
             updateMatrix();
         }
