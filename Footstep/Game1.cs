@@ -19,14 +19,16 @@ namespace Footstep
             Content.RootDirectory = "Content";
 
             _graphics.IsFullScreen = false;
-            _graphics.PreferredBackBufferWidth = 900;
-            _graphics.PreferredBackBufferHeight = 600;
+            _graphics.PreferredBackBufferWidth = 320 * 4;
+            _graphics.PreferredBackBufferHeight = 200 * 4;
         }
 
         protected override void Initialize()
         {
             Window.Title = "Monogame 3D Tests";
             IsMouseVisible = false;
+
+            //GraphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
 
             Utility.Game = this;
             Utility.Effect = new BasicEffect(_graphics.GraphicsDevice);
@@ -41,7 +43,11 @@ namespace Footstep
         protected override void LoadContent()
         {
             var floor = new Floor();
+            var wall = new Wall();
+            var ceiling = new Ceiling();
             _objects.Add(floor);
+            _objects.Add(wall);
+            _objects.Add(ceiling);
 
             foreach(var obj in _objects)
                 obj.Load(Content, _graphics);
