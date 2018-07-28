@@ -8,5 +8,6 @@ namespace Footstep
         public static BasicEffect Effect;
         public static Game1 Game;
         public static GameWindow Window;
+        public static Map GameMap;
     }
 }
