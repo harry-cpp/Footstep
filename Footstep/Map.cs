@@ -7,10 +7,10 @@ namespace Footstep
         public Map()
         {
             _grid = new Tiles[5, 5] {
-                {Tiles.None, Tiles.Hallway, Tiles.None, Tiles.None, Tiles.None},
-                {Tiles.None, Tiles.Hallway, Tiles.Hallway, Tiles.None, Tiles.None},
+                {Tiles.Hallway, Tiles.None, Tiles.Hallway, Tiles.None, Tiles.None},
+                {Tiles.Hallway, Tiles.None, Tiles.Hallway, Tiles.None, Tiles.None},
                 {Tiles.Hallway, Tiles.Hallway, Tiles.Hallway, Tiles.Hallway, Tiles.Hallway},
-                {Tiles.None, Tiles.Hallway, Tiles.None, Tiles.None, Tiles.None},
+                {Tiles.None, Tiles.None, Tiles.None, Tiles.None, Tiles.None},
                 {Tiles.None, Tiles.None, Tiles.None, Tiles.None, Tiles.None},
             };
         }
