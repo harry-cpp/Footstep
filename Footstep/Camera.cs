@@ -78,7 +78,7 @@ namespace Footstep
             set
             {
                 Forward = value - Position;
-                Forward.Normalize();
+                _forward.Normalize();
             }
         }
 
@@ -103,7 +103,7 @@ namespace Footstep
 
                     Forward += dx * _rotationSpeed * normal;
                     //Forward -= dy * _rotationSpeed * Up;
-                    Forward = Vector3.Normalize(Forward);
+                    _forward.Normalize();
                 }
 
                 if (InputManager.IsDown(InputKey.MoveForward))
