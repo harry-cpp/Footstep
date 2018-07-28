@@ -79,7 +79,6 @@ namespace Footstep
 
                 index += 6;
             }
-            Console.WriteLine("_vertices: " + (_vertices.Length / 3));
         }
 
         public override void Load(ContentManager content, GraphicsDeviceManager graphics)
