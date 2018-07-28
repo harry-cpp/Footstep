@@ -15,7 +15,7 @@ namespace Footstep
         private Matrix _view;
         private Matrix _world;
 
-        private float _speed = 5f;
+        private float _speed = 3f;
         private float _rotationSpeed = 0.002f;
 
         private static MouseState _prevMState, _mState;
@@ -23,7 +23,7 @@ namespace Footstep
         public Camera(GraphicsDeviceManager graphics)
         {
             Graphics = graphics;
-            _position = new Vector3(0, 0, 0.3f);
+            _position = new Vector3(0, 0, 0.2f);
 
             updateMatrix();
         }
