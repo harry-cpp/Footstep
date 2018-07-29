@@ -42,6 +42,7 @@ namespace Footstep
 
             if (_level != null)
             {
+                _level.SizeChanged();
                 foreach (var obj in _level.Objects)
                     obj.SizeChanged();
             }
@@ -79,7 +80,7 @@ namespace Footstep
             // Draw UI Layer
             _graphics.GraphicsDevice.SetRenderTarget(_renderTarget);
             _graphics.GraphicsDevice.Clear(Color.Transparent);
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(samplerState:SamplerState.PointClamp);
             _level.DrawUI(gameTime, _spriteBatch);
             foreach(var obj in _level.Objects)
                 obj.DrawUI(gameTime, _spriteBatch);

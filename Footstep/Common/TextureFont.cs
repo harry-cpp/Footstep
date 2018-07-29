@@ -8,6 +8,7 @@ namespace Footstep
         private Texture2D _texture;
         private int _fontWidth, _fontHeight;
         private float _scaleFactor;
+        private float _spacing;
 
         public TextureFont(Texture2D texture, int fontWidth, int fontHeight) : this (texture, fontWidth, fontHeight, 1f)
         {
@@ -20,6 +21,7 @@ namespace Footstep
             _fontWidth = fontWidth;
             _fontHeight = fontHeight;
             _scaleFactor = scaleFactor;
+            _spacing = 1f;
         }
 
         public float CharacterWidth => _fontWidth * _scaleFactor;
@@ -28,7 +30,7 @@ namespace Footstep
 
         public Vector2 MeasureString(string s)
         {
-            return new Vector2(s.Length * _fontWidth * _scaleFactor, _fontHeight * _scaleFactor);
+            return new Vector2(s.Length * (_fontWidth + _spacing) * _scaleFactor, _fontHeight * _scaleFactor);
         }
 
         public void DrawChar(SpriteBatch spriteBatch, char c, Vector2 position, Color color)
@@ -48,8 +50,8 @@ namespace Footstep
         {
             foreach (var c in text)
             {
-                position.X += _fontWidth * _scaleFactor;
                 DrawChar(spriteBatch, c, position, color);
+                position.X += (_fontWidth + _spacing) * _scaleFactor;
             }
         }
     }

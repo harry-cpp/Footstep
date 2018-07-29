@@ -29,6 +29,7 @@ namespace Footstep
         {
             Window.Title = "Monogame 3D Tests";
             Window.AllowUserResizing = true;
+            Window.ClientSizeChanged += (o, e) => LevelManager.SizeChanged();
             IsMouseVisible = false;
 
             Utility.Game = this;
