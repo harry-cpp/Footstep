@@ -129,7 +129,7 @@ namespace Footstep
 
         public override void Load(ContentManager content, GraphicsDeviceManager graphics)
         {
-            _texture = content.Load<Texture2D>("Wall");
+            _texture = content.Load<Texture2D>(GameContent.Texture.Wall);
         }
 
         public override void Draw(GameTime gameTime, Camera camera)
