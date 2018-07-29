@@ -87,6 +87,9 @@ namespace Footstep
             _spriteBatch.End();
             _graphics.GraphicsDevice.SetRenderTarget(null);
 
+            _spriteBatch.Begin();
+            _spriteBatch.End();
+
             // Render game
             Utility.Effect.World = _camera.World;
             Utility.Effect.View = _camera.View;
