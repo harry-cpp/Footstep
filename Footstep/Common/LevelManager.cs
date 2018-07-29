@@ -7,6 +7,8 @@ namespace Footstep
 {
     static class LevelManager
     {
+        public static bool UpdateCamera { get; set; }
+
         private static ILevel _level;
         private static GraphicsDeviceManager _graphics;
         private static ContentManager _content;
@@ -16,6 +18,8 @@ namespace Footstep
 
         public static void Init(GraphicsDeviceManager graphics, ContentManager content)
         {
+            UpdateCamera = true;
+
             _graphics = graphics;
             _content = content;
 
@@ -47,6 +51,9 @@ namespace Footstep
         {
             level.Init();
 
+            level.Load(_content, _graphics);
+            level.SizeChanged();
+
             foreach(var obj in level.Objects)
             {
                 obj.Load(_content, _graphics);
@@ -60,7 +67,8 @@ namespace Footstep
         {
             InputManager.Update();
 
-            _camera.Update(gameTime);
+            if (UpdateCamera)
+                _camera.Update(gameTime);
             _level.Update(gameTime);
             foreach (var obj in _level.Objects)
                 obj.Update(gameTime);

@@ -6,6 +6,10 @@ namespace Footstep
         MoveForward,
         MoveBackwards,
         MoveLeft,
-        MoveRight
+        MoveRight,
+        MenuUp,
+        MenuDown,
+        MenuSelect,
+        MenuBack
     }
 }

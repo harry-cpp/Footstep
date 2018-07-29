@@ -17,6 +17,10 @@ namespace Footstep
             _dictKeys.Add(InputKey.MoveBackwards, Keys.S);
             _dictKeys.Add(InputKey.MoveLeft, Keys.A);
             _dictKeys.Add(InputKey.MoveRight, Keys.D);
+
+            _dictKeys.Add(InputKey.MenuUp, Keys.Up);
+            _dictKeys.Add(InputKey.MenuDown, Keys.Down);
+            _dictKeys.Add(InputKey.MenuSelect, Keys.Enter);
         }
 
         public static Vector2 Position => _mState.Position.ToVector2();

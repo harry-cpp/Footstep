@@ -6,6 +6,9 @@ namespace Footstep
     {
         public override void Init()
         {
+            Utility.Game.IsMouseVisible = false;
+            LevelManager.UpdateCamera = true;
+
             Objects.Add(new Floor());
             Objects.Add(new Wall());
             Objects.Add(new Ceiling());

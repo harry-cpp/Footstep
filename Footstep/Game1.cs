@@ -43,7 +43,7 @@ namespace Footstep
         protected override void LoadContent()
         {
             LevelManager.Init(_graphics, Content);
-            LevelManager.LoadLevel(new GameLevel());
+            LevelManager.LoadLevel(new MenuLevel());
         }
 
         protected override void Update(GameTime gameTime)
