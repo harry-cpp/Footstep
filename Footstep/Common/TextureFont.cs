@@ -7,17 +7,28 @@ namespace Footstep
     {
         private Texture2D _texture;
         private int _fontWidth, _fontHeight;
+        private float _scaleFactor;
 
-        public TextureFont(Texture2D texture, int fontWidth, int fontHeight)
+        public TextureFont(Texture2D texture, int fontWidth, int fontHeight) : this (texture, fontWidth, fontHeight, 1f)
+        {
+
+        }
+
+        public TextureFont(Texture2D texture, int fontWidth, int fontHeight, float scaleFactor)
         {
             _texture = texture;
             _fontWidth = fontWidth;
             _fontHeight = fontHeight;
+            _scaleFactor = scaleFactor;
         }
+
+        public float CharacterWidth => _fontWidth * _scaleFactor;
+
+        public float CharacterHeight => _fontHeight * _scaleFactor;
 
         public Vector2 MeasureString(string s)
         {
-            return new Vector2(s.Length * _fontWidth, _fontHeight);
+            return new Vector2(s.Length * _fontWidth * _scaleFactor, _fontHeight * _scaleFactor);
         }
 
         public void DrawChar(SpriteBatch spriteBatch, char c, Vector2 position, Color color)
@@ -28,7 +39,7 @@ namespace Footstep
             spriteBatch.Draw(
                 texture: _texture,
                 sourceRectangle: new Rectangle(xpos, ypos, _fontWidth, _fontHeight),
-                position: position,
+                destinationRectangle: new Rectangle((int)(position.X), (int)(position.Y), (int)(_fontWidth * _scaleFactor), (int)(_fontHeight * _scaleFactor)),
                 color: color
             );
         }
@@ -37,7 +48,7 @@ namespace Footstep
         {
             foreach (var c in text)
             {
-                position.X += _fontWidth;
+                position.X += _fontWidth * _scaleFactor;
                 DrawChar(spriteBatch, c, position, color);
             }
         }
