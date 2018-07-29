@@ -11,12 +11,22 @@ namespace Footstep
 
         }
 
+        public virtual void SizeChanged()
+        {
+            
+        }
+
         public virtual void Update(GameTime gameTime)
         {
 
         }
 
         public virtual void Draw(GameTime gameTime, Camera camera)
+        {
+
+        }
+
+        public virtual void DrawUI(GameTime gameTime, SpriteBatch spriteBatch)
         {
 
         }
