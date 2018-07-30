@@ -17,6 +17,6 @@ namespace Footstep
 
         public int X => _x;
         public int Y => _y;
-        public TileType Type;
+        public TileType Type => _type;
     }
 }
