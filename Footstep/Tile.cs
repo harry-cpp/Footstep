@@ -12,6 +12,7 @@ namespace Footstep
         {
             _x = iX;
             _y = iY;
+            _type = type;
         }
 
         public int X => _x;
