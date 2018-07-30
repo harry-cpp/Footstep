@@ -115,12 +115,12 @@ namespace Footstep
                 _vertices[index + 4].Position = new Vector3(tl.X2, tl.Y2, 0);
                 _vertices[index + 5].Position = _vertices[index + 2].Position;
 
-                _vertices[index + 0].TextureCoordinate = new Vector2(0, 0);
-                _vertices[index + 1].TextureCoordinate = new Vector2(0, 1);
-                _vertices[index + 2].TextureCoordinate = new Vector2(1, 0);
+                _vertices[index + 0].TextureCoordinate = new Vector2(1, 0);
+                _vertices[index + 1].TextureCoordinate = new Vector2(1, 1);
+                _vertices[index + 2].TextureCoordinate = new Vector2(0, 0);
 
                 _vertices[index + 3].TextureCoordinate = _vertices[index + 1].TextureCoordinate;
-                _vertices[index + 4].TextureCoordinate = new Vector2(1, 1);
+                _vertices[index + 4].TextureCoordinate = new Vector2(0, 1);
                 _vertices[index + 5].TextureCoordinate = _vertices[index + 2].TextureCoordinate;
 
                 index += 6;
