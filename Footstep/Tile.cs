@@ -17,6 +17,13 @@ namespace Footstep
 
         public int X => _x;
         public int Y => _y;
-        public TileType Type => _type;
+        public TileType Type
+        {
+            get { return _type; }
+            set
+            {
+                _type = value;
+            }
+        }
     }
 }
