@@ -24,7 +24,17 @@ namespace Footstep
 
         public Map()
         {
-            _width = 100;
+            Tile hallway = new Tile(1, 1, TileType.Hallway);
+            Tile none = new Tile(1, 1, TileType.None);
+            _grid = new Tile[5, 5] {
+                {none, hallway, none, none, none},
+                {none, hallway, hallway, none, none},
+                {hallway, hallway, hallway, hallway, hallway},
+                {none, hallway, none, none, none},
+                {none, none, none, none, none},
+            };
+
+            /*_width = 100;
             _height = 100;
 
             _grid = new Tile[Width, Height];
@@ -37,7 +47,7 @@ namespace Footstep
                 }
             }
 
-            generateMap();
+            generateMap();*/
         }
 
         public Tile[,] Grid
