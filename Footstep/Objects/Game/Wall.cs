@@ -116,13 +116,15 @@ namespace Footstep
 
         public override void Draw(GameTime gameTime, Camera camera)
         {
-            Utility.Effect.Texture = _texture;
+            if (_vertices.Length > 0) {
+                Utility.Effect.Texture = _texture;
 
-            foreach (var pass in Utility.Effect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
+                foreach (var pass in Utility.Effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
 
-                camera.Graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, _vertices, 0, _vertices.Length / 3);
+                    camera.Graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, _vertices, 0, _vertices.Length / 3);
+                }
             }
         }
     }
