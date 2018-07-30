@@ -24,7 +24,7 @@ namespace Footstep
 
         public Map()
         {
-            Tile hallway = new Tile(1, 1, TileType.Hallway);
+            /*Tile hallway = new Tile(1, 1, TileType.Hallway);
             Tile none = new Tile(1, 1, TileType.None);
             _grid = new Tile[5, 5] {
                 {none, hallway, none, none, none},
@@ -32,9 +32,9 @@ namespace Footstep
                 {hallway, hallway, hallway, hallway, hallway},
                 {none, hallway, none, none, none},
                 {none, none, none, none, none},
-            };
+            };*/
 
-            /*_width = 100;
+            _width = 100;
             _height = 100;
 
             _grid = new Tile[Width, Height];
@@ -47,7 +47,7 @@ namespace Footstep
                 }
             }
 
-            generateMap();*/
+            generateMap();
         }
 
         public Tile[,] Grid
@@ -76,7 +76,7 @@ namespace Footstep
         {
             List<Tile> path = new List<Tile>();
             int length = 0;
-            int maxLength = 200;
+            int maxLength = 500;
 
             int startX = Utility.Random.Next(0, Width);
             int startY = Utility.Random.Next(0, Height);
