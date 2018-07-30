@@ -35,8 +35,9 @@ namespace Footstep
             Utility.Game = this;
             Utility.Effect = new BasicEffect(_graphics.GraphicsDevice);
             Utility.Window = Window;
+            Utility.Random = new Random();
 
-            Utility.GameMap = MapGenerator.GenerateMap();
+            Utility.GameMap = new Map();
 
             base.Initialize();
         }

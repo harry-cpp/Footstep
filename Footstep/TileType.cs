@@ -1,6 +1,6 @@
 namespace Footstep
 {
-    enum Tiles
+    enum TileType
     {
         None,
         Hallway,

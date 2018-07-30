@@ -15,7 +15,7 @@ namespace Footstep
         {
             public int X;
             public int Y;
-            public Tiles Tile;
+            public TileType Tile;
         }
 
         public Floor()
@@ -30,8 +30,8 @@ namespace Footstep
             {
                 for (int j = 0; j < Utility.GameMap.Grid.GetLength(1); j++)
                 {
-                    if (Utility.GameMap.Grid[i, j] != Tiles.None) {
-                        tiles.Add(new TileLocation{ X = i, Y = j, Tile = Utility.GameMap.Grid[i, j]});
+                    if (Utility.GameMap.Grid[i, j].Type != TileType.None) {
+                        tiles.Add(new TileLocation{ X = i, Y = j, Tile = Utility.GameMap.Grid[i, j].Type});
                     }
                 }
             }

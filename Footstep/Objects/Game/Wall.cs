@@ -16,29 +16,11 @@ namespace Footstep
             public int Y1;
             public int X2;
             public int Y2;
-            public Tiles Tile;
+            public TileType Tile;
         }
 
         public Wall()
         {
-            /*_vertices = new VertexPositionNormalTexture[6];
-
-            _vertices[0].Position = new Vector3(-20, -20, 0);
-            _vertices[1].Position = new Vector3(20, -20, 0);
-            _vertices[2].Position = new Vector3(-20, -20, 1);
-
-            _vertices[3].Position = _vertices[1].Position;
-            _vertices[4].Position = new Vector3(20, -20, 1);
-            _vertices[5].Position = _vertices[2].Position;
-
-            _vertices[0].TextureCoordinate = new Vector2(0, 0);
-            _vertices[1].TextureCoordinate = new Vector2(40, 0);
-            _vertices[2].TextureCoordinate = new Vector2(0, 1);
-
-            _vertices[3].TextureCoordinate = _vertices[1].TextureCoordinate;
-            _vertices[4].TextureCoordinate = new Vector2(40, 1);
-            _vertices[5].TextureCoordinate = _vertices[2].TextureCoordinate;*/
-
             generateWall();
         }
         
@@ -48,19 +30,19 @@ namespace Footstep
             for (int i = 0; i < Utility.GameMap.Grid.GetLength(0); i++)
             {
                 bool lastWasTile = false;
-                Tiles currentTile = Tiles.None;
+                TileType currentTile = TileType.None;
                 for (int j = 0; j < Utility.GameMap.Grid.GetLength(1); j++)
                 {
-                    currentTile = Utility.GameMap.Grid[i, j];
-                    if (!lastWasTile && currentTile != Tiles.None)
+                    currentTile = Utility.GameMap.Grid[i, j].Type;
+                    if (!lastWasTile && currentTile != TileType.None)
                     {
                         tiles.Add(new WallLocation{ X1 = i, Y1 = j, X2 = i + 1, Y2 = j, Tile = currentTile});
-                    } else if (lastWasTile && Utility.GameMap.Grid[i, j] == Tiles.None)
+                    } else if (lastWasTile && currentTile == TileType.None)
                     {
                         tiles.Add(new WallLocation{ X1 = i + 1, Y1 = j, X2 = i, Y2 = j, Tile = currentTile});
                     }
                     
-                    if (currentTile != Tiles.None)
+                    if (currentTile != TileType.None)
                     {
                         lastWasTile = true;
                     } else {
@@ -76,19 +58,19 @@ namespace Footstep
             for (int j = 0; j < Utility.GameMap.Grid.GetLength(1); j++)
             {
                 bool lastWasTile = false;
-                Tiles currentTile = Tiles.None;
+                TileType currentTile = TileType.None;
                 for (int i = 0; i < Utility.GameMap.Grid.GetLength(0); i++)
                 {
-                    currentTile = Utility.GameMap.Grid[i, j];
-                    if (!lastWasTile && currentTile != Tiles.None)
+                    currentTile = Utility.GameMap.Grid[i, j].Type;
+                    if (!lastWasTile && currentTile != TileType.None)
                     {
                         tiles.Add(new WallLocation{ X1 = i, Y1 = j + 1, X2 = i, Y2 = j, Tile = currentTile});
-                    } else if (lastWasTile && currentTile == Tiles.None)
+                    } else if (lastWasTile && currentTile == TileType.None)
                     {
                         tiles.Add(new WallLocation{ X1 = i, Y1 = j, X2 = i, Y2 = j + 1, Tile = currentTile});
                     }
                     
-                    if (currentTile != Tiles.None)
+                    if (currentTile != TileType.None)
                     {
                         lastWasTile = true;
                     } else {
