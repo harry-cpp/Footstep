@@ -91,6 +91,7 @@ namespace Footstep
             _spriteBatch.End();
 
             // Render game
+            _graphics.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             Utility.Effect.World = _camera.World;
             Utility.Effect.View = _camera.View;
             Utility.Effect.Projection = _camera.Projection;
